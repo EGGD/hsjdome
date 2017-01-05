@@ -1,0 +1,54 @@
+* {padding: 0px;}
+body {font-family: ΢���ź�,Arial Narrow,arial,serif; font-size:12px; color:#000000;margin: 0 auto; padding: 0px; background:#000610;  min-width: 1170px; max-width: 1170px;}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote{margin: 0px; padding: 0px;}
+ul,li {list-style-type: none;}
+img {border: 0px;}
+a{ color:#333333; font-size:12px;text-decoration: none;}
+a:hover{ color:#9d0b0f;}
+.header{ width: 100%; height: 102px; background: url(../images/hsj_header.jpg) center repeat-y;}
+@font-face {
+    font-family:lxksf;
+    src:url('../font/lxksf.TTF');
+}
+@font-face {
+    font-family:led;
+    src:url('../font/led.TTF');
+}
+@font-face {
+    font-family:dianhei;
+    src:url('../font/dianhei.TTF');
+}
+.font1{ font-family:'lxksf';}
+.font2{ font-family:'led';}
+.font3{font-family: 'dianhei';}
+.size1{line-height:58px;color: #fff; font-size: 48px;}
+.size2{line-height:58px;color: #ff0000; font-size: 48px;}
+
+.col1{width: 29%; float: left; position: relative;}
+.col2{width: 100%; float: left; position: relative; }
+.col3{width: 29%; float: left; position: relative;}
+
+.col2 .mod1{ width: 100%; height: auto; background: url(../images/bg_wg.jpg); position: relative;overflow:hidden;}
+.col2 .mod1 .bg_left{ width: 35px; height: 28px; position:absolute; border-left:3px solid #35a6aa; border-top:3px solid #35a6aa; left: 0; top: 0;}
+.col2 .mod1 .bg_right{  width: 35px; height: 28px; position:absolute; border-right:3px solid #35a6aa; border-top:3px solid #35a6aa; right: 0; top: 0;}
+.col2 .mod1 .md1{ width: 100%;margin-left: 90px;}
+.col2 .mod1 .md1 span{ float: left; margin-left: 40px; line-height: 50px; color: #fff; text-align: center; font-size: 25px;}
+.col2 .mod1 .md2{position: relative;float: left; width: 34%; height: auto; margin:25px 50% 3px 3px; background:#000610; -moz-box-shadow:3px 3px 3px #1D242E, -3px -3px 3px #1D242E, 3px -3px 3px #1D242E, -3px 3px 3px #1D242E; -webkit-box-shadow:3px 3px 3px #1D242E, -3px -3px 3px #1D242E, 3px -3px 3px #1D242E, -3px 3px 3px #1D242E; box-shadow:3px 3px 3px #1D242E, -3px -3px 3px #1D242E, 3px -3px 3px #1D242E, -3px 3px 3px #1D242E;}
+.col2 .mod1 .md2 .tit{position: absolute; top: 0; left: 0; width: 100%; height:30px; color: #7bc2f0; line-height: 30px; font-size: 23px; font-weight: bold; background: #091525; text-indent: 12px;}
+.col2 .mod1 .md2 .m1{float: left; width: 100%; height:400px; }
+.col2 .mod1 .md3{ float: left; width: 49%; height: 196px; margin:8px 50% 3px 3px;background:#000610; -moz-box-shadow:3px 3px 3px #1D242E, -3px -3px 3px #1D242E, 3px -3px 3px #1D242E, -3px 3px 3px #1D242E; -webkit-box-shadow:3px 3px 3px #1D242E, -3px -3px 3px #1D242E, 3px -3px 3px #1D242E, -3px 3px 3px #1D242E; box-shadow:3px 3px 3px #1D242E, -3px -3px 3px #1D242E, 3px -3px 3px #1D242E, -3px 3px 3px #1D242E;}
+.col2 .mod1 .md3 table{ margin-top: 20px;width: 100%;}
+.col2 .mod1 .md3 table td{ width: 125px; height:30px; color: #fff; font-size: 16px; text-align: center;}
+.col2 .mod1 .md3 table td div{ width: 50px; height:20px; text-align: center;margin:0 auto; border-radius: 5px;}
+.col2 .mod1 .md4{position:absolute; top: 65px;left:320px; right: 0; width: 50%; height: 400px;}
+.col2 .mod1 .md5{position: relative;float: left; width: 49%; height: auto; margin:25px 50% 3px 3px; background:#000610; -moz-box-shadow:3px 3px 3px #1D242E, -3px -3px 3px #1D242E, 3px -3px 3px #1D242E, -3px 3px 3px #1D242E; -webkit-box-shadow:3px 3px 3px #1D242E, -3px -3px 3px #1D242E, 3px -3px 3px #1D242E, -3px 3px 3px #1D242E; box-shadow:3px 3px 3px #1D242E, -3px -3px 3px #1D242E, 3px -3px 3px #1D242E, -3px 3px 3px #1D242E;}
+.col2 .mod1 .md5 .tit{position: absolute; top: 0; left: 0; width: 100%; height:30px; color: #7bc2f0; line-height: 30px; font-size: 23px; font-weight: bold; background: #091525; text-indent: 12px;}
+.col2 .mod1 .md5 .m1{float: left; width: 191px; height:400px; }
+
+.col2 .mod2{width: 100%; height: auto; position: relative; margin-top: 5px;background: #091525;}
+.col2 .mod2 .bg_left{ width: 35px; height: 28px; position:absolute; border-left:3px solid #35a6aa; border-bottom:3px solid #35a6aa; left: 0; bottom: 0;}
+.col2 .mod2 .bg_right{  width: 35px; height: 28px; position:absolute; border-right:3px solid #35a6aa; border-bottom:3px solid #35a6aa; right: 0; bottom: 0;}
+.col2 .mod2 .md1{width: 100%; height: 295px;}
+.zhiban{  position: absolute; overflow:hidden;  top:50px;  left: 850px;  width: 300px;  color: #fff;  font-size: 20px;  text-align: center;  }
+.zhiban table colgroup{font-size: 20px}
+.zhiban table tr td{  height: 40px;  width:150px;  }

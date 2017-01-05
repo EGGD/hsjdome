@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+        <script src="js/echarts.min.js"></script>
+        <script src="js/jquery.js"></script>
+<style>
+    #zhexiantu,#bingtu,#ditu{
+        height: 700px;
+        width: 700px;
+    }
+</style>
+<body>
+
+<div id="zhexiantu" ></div>
+<div id="bingtu" ></div>
+<div id="ditu"></div>
+<script>
+    function zhexiantu() {
+        var zhexiantu=echarts.init(document.getElementById('zhexiantu'));
+        var time1=['11月1日','11月2日','11月3日','11月4日','11月5日','11月6日','11月7日'];
+        var wzg1,wzg2,wzg3,wzg4;
+        wzg1=[120, 132, 101, 134, 90, 230, 210];
+        wzg2=[220, 182, 191, 234, 290, 330, 310];
+        wzg3=[150, 232, 201, 154, 190, 330, 410];
+        wzg4=[820, 932, 901, 934, 1290, 1330, 1320];
+        option = {
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                data:['未整改','已整改','未整改1','未整改2']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    boundaryGap : false,
+                    data : time1
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : [
+                {
+                    name:'未整改',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {normal: {}},
+                    itemStyle: {
+                        normal: {
+                            color: '#f0a461'
+                        }
+                    },
+                    data:wzg1
+                },
+                {
+                    name:'已整改',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {normal: {}},
+                    itemStyle: {
+                        normal: {
+                            color: '#068df5'
+                        }
+                    },
+                    data:wzg2
+                },
+                {
+                    name:'未整改1',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {normal: {}},
+                    itemStyle: {
+                        normal: {
+                            color: '#2aff00'
+                        }
+                    },
+                    data:wzg3
+                },
+                {
+                    name:'未整改2',
+                    type:'line',
+                    stack: '总量',
+                    areaStyle: {normal: {}},
+                    itemStyle: {
+                        normal: {
+                            color: '#E87C25'
+                        }
+                    },
+                    data:wzg4
+                },
+            ]
+        };
+
+        zhexiantu.setOption(option);
+    }
+    function bingtu() {
+        var bingtu=echarts.init(document.getElementById('bingtu'));
+        var shuju=[335,310,274,235];
+        var fenlei=['分类1','分类2','分类3','分类4'];
+        var tianjianamehou=shuju.map(function (value,key) {
+            return {value:value,name:fenlei[key]}
+        });
+        option = {
+            title: {
+                text: '企业分布情况',
+                left: 'center',
+                top: 20,
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            visualMap: {
+                show: false,
+                min: 80,
+                max: 600,
+                inRange: {
+                    colorLightness: [0, 1]
+                }
+            },
+            series : [
+                {
+                    name:'访问来源',
+                    type:'pie',
+                    radius : '55%',
+                    center: ['50%', '50%'],
+                    data:tianjianamehou.sort(function (a, b) { return a.value - b.value}),
+                    roseType: 'angle',
+                }
+            ]
+        };
+        bingtu.setOption(option);
+    }
+    function ditu() {
+        var myChart=echarts.init(document.getElementById('ditu'));
+        myChart.showLoading();
+
+        $.get('geoJson/wenzhou.json', function (geoJson) {
+
+            myChart.hideLoading();
+
+            echarts.registerMap('wenzhou', geoJson);
+
+            myChart.setOption(option = {
+                visualMap: {
+                    min: 0,
+                    max: 50,
+                    text:['High','Low'],
+                    realtime: false,
+                    calculable: true,
+                    inRange: {
+                        color: ['lightskyblue','yellow', 'orangered']
+                    }
+                },
+                series: [
+                    {
+                        name: '统计各县市区填写的企业总数',
+                        type: 'map',
+                        mapType: 'wenzhou', // 自定义扩展图表类型
+                        itemStyle:{
+                            normal:{label:{show:true}},
+                            emphasis:{label:{show:true}}
+                        },
+                        data:[
+                            {name: '永嘉县', value: 2},
+                            {name: '乐清市', value: 7},
+                            {name: '鹿城区', value: 10},
+                            {name: '瓯海区', value: 15},
+                            {name: '龙湾区', value: 20},
+                            {name: '洞头区', value: 25},
+                            {name: '瑞安市', value: 30},
+                            {name: '文成县', value: 35},
+                            {name: '平阳县', value: 40},
+                            {name: '泰顺县', value: 45},
+                            {name: '苍南县', value: 10},
+                        ],
+                    }
+                ]
+            });
+        });
+    }
+
+    bingtu();
+    zhexiantu();
+    ditu();
+</script>
+</body>
+</html>
